@@ -8,6 +8,7 @@ var app = express();
 var data = null;
 load(function (err, file_list) {
 	data = file_list;
+	console.log(data)
 	console.log('Loaded symlinks')
 });
 
@@ -22,8 +23,8 @@ app.get('/', function (req, res) {
 	res.sendFile(process.cwd() + '/static/index.html');
 });
 app.get('/api/symlinks', function (req, res) {
-	// res.send('hello');
-	res.json(data);
+	if (!data) res.sendStatus(500);
+	else res.json(data);
 })
 
 app.set('json spaces', 2);

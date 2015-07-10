@@ -6,21 +6,21 @@ module.exports = function (callback) {
 	// Walker options
 	// var options = { followLinks: false };
 	var options;
-	var walker  = walk.walk('./symlinks', options);
+	var walker  = walk.walk('symlinks', options);
 
-	var root = '/var/www';
+	// var root = '';
 	walker.on('file', function(root, stat, next) {
-		console.log('found one');
 		// Add this file to the list of files
+		console.log('found one')
 		files.push(root + '/' + stat.name);
 		next();
 	});
 
 	walker.on('errors', function (root, nodeStatsArray, next) {
+		console.log('er')
 		callback('error processing files', null);
 	})
 	walker.on('end', function() {
-		console.log(files);
 		callback(null, files);
 	});
 }
