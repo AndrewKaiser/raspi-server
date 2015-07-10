@@ -1,0 +1,14 @@
+{
+  "name": "raspi-server",
+  "description": "raspberry pi server",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.1",
+    "nodemon": "^1.3.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrewKaiser/raspi-server.git"
+  },
+  "author": "Andrew Kaiser",
+}
