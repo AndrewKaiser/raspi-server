@@ -1,6 +1,7 @@
 var time = new Date().getTime(); //record time to boot server
 
 var load = require('./load.js');
+var fs = require('fs');
 var path = require('path')
 var express = require('express');
 
@@ -34,6 +35,12 @@ app.get('/api/symlinks', function (req, res) {
 		else res.json(file_list);
 	});
 });
+app.get('/api/links', function (req, res) {
+	var query = path.join('symlinks/me/', req.query.tool+'.json');
+	fs.readFile(query, 'utf8', function (err, json) {
+		res.json(JSON.parse(json));
+	})
+})
 
 app.set('json spaces', 2);
 app.use(express.static('static'));

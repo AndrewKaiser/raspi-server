@@ -1,40 +1,30 @@
-// var t = $('#evernote');
-// console.log(t.attr('class'))
-var t = document.getElementsByTagName('*');
-var t = document.getElementById('mega');
-console.log(t)
-$('.links').click(function () {
-	var id = this.id;
-	console.log('id');
-
-
-
-	var id = this.id;
-	id = id.substring(this.id.indexOf('-')+1, this.id.length);
-	id = parseInt(id)+1;
-	var getRow = '/api/row?id=' + (id);
-	var getMap = '/api/mappings?id=' + (id);
-	var getCWE = '/api/cwe?id=' + (id);
-	var getDES = '/api/description?id=' + (id);
-	$('#detail').children().clone().appendTo('#popup')
-	var detail = document.getElementById('detail');
-	$.get(getRow, function ( rule ) {
-		makeTable(rule, '#popup .rule')
-	});
-	$.get(getMap, function( mappings ) {
-		makeTable(mappings, '#popup .mappings');
-	});
-	$.get(getCWE, function ( history ) {
-		makeTable(history, "#popup .historyCWE");
-	});
-	$.get(getDES, function ( description ) {
-		description.forEach(function (entry) {
-			// make tag for html or text or markdown
-			$("#popup .description").append(entry.description);
+$(document).ready(function () {
+	$('.links').click(function () {
+		var getLinks = '/api/links?tool=' + this.id;
+		$.get(getLinks, function ( links ) {
+			$('#detail').children().clone().appendTo('#popup');
+			var ul = document.getElementById('list');
+			for (key in links) {
+				var li = document.createElement('li');
+				var a = document.createElement('a');
+				a.href = links[key];
+				a.appendChild(document.createTextNode(key));
+				li.appendChild(a);
+				ul.appendChild(li);
+			}
 		});
+		$('#popup').show();
+		$('#backdrop').show();
 	});
-	// look at top of atlas on evernote!
-	// do makeTable() on HistoryCWE as well
-	$('#popup').show();
-	$('#backdrop').show();
+
+	$('#backdrop').click(function () {
+		var popup = document.getElementById('popup');
+		var backdrop = document.getElementById('backdrop');
+		$(popup).children().each(function() {
+			$(this).val = "";
+		});
+		$(popup).hide();
+		$(backdrop).hide();
+		popup.innerHTML = "";
+	})
 });

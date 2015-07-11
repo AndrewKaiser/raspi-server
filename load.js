@@ -6,11 +6,10 @@ module.exports = function (folder, callback) {
 
 	var walker  = walk.walk(folder, { followLinks: true });
 
-	// var root = '';
 	walker.on('file', function(root, stat, next) {
 		if (stat.name == '.gitignore');
 		else files.push(root + '/' + stat.name);
-		console.log(root+ '/' + stat.name)
+		// console.log(root+ '/' + stat.name)
 		next();
 	});
 
