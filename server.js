@@ -12,7 +12,7 @@ load(function (err, file_list) {
 	console.log('Loaded symlinks')
 });
 
-var server = app.listen(80, function() {
+var server = app.listen(8080, function() {
 	var host = server.address().address;
 	var port = server.address().port;
 
@@ -23,8 +23,10 @@ app.get('/', function (req, res) {
 	res.sendFile(process.cwd() + '/static/index.html');
 });
 app.get('/api/symlinks', function (req, res) {
-	if (!data) res.sendStatus(500);
-	else res.json(data);
+	load(function (err, file_list) {
+		if (!file_list) res.sendStatus(500);
+		else res.json(file_list);
+	})
 })
 
 app.set('json spaces', 2);

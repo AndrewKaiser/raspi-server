@@ -1,4 +1,7 @@
 {
+  "scripts":{
+    "start":"nodemon -e js,mp3,txt,json -w . -i static -w symlinks server.js"
+  },
   "name": "raspi-server",
   "description": "raspberry pi server",
   "main": "server.js",
