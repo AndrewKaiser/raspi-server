@@ -37,3 +37,4 @@ app.get('/api/symlinks', function (req, res) {
 
 app.set('json spaces', 2);
 app.use(express.static('static'));
+app.use(express.static('symlinks'));

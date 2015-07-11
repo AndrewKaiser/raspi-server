@@ -1,6 +1,9 @@
-body {
-
+#fileTable {
+	width:100%;
 }
-html {
-
+#fileTable tr td {
+	white-space: nowrap;
+}
+tr td {
+	padding:0 0 0 0;
 }

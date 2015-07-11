@@ -13,8 +13,11 @@ function makeTable(list) {
 		var row = list[r];
 		var tr = document.createElement('tr');
 		var td = document.createElement('td');
-		tr.appendChild(document.createTextNode(row));
-		// tr.appendChild(td);
+		var a = document.createElement('a');
+		a.href = row;
+		a.appendChild(document.createTextNode(row));
+		td.appendChild(a);
+		tr.appendChild(td);
 		tableFrag.appendChild(tr);
 	}
 	table.appendChild(tableFrag);
