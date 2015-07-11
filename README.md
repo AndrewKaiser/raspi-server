@@ -3,8 +3,8 @@ raspi-server
 
 to start
 --------
-`npm install`
 `npm start`
+now load up files (or symlinks) into the symlinks folder and they will be displayed per each user
 
 optional
 --------
