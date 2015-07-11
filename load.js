@@ -1,11 +1,12 @@
-module.exports = function (callback) {
+module.exports = function (folder, callback) {
 	var walk = require('walk');
 	var files = [];
 
 	// Walker options
 	var options = { followLinks: true };
 	// var options;
-	var walker  = walk.walk('symlinks', options);
+	console.log(folder)
+	var walker  = walk.walk(folder, options);
 
 	// var root = '';
 	walker.on('file', function(root, stat, next) {
