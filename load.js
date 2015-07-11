@@ -2,11 +2,8 @@ module.exports = function (folder, callback) {
 	var walk = require('walk');
 	var files = [];
 
-	// Walker options
-	var options = { followLinks: true };
-	// var options;
-	console.log(folder)
-	var walker  = walk.walk(folder, options);
+
+	var walker  = walk.walk(folder, { followLinks: true });
 
 	// var root = '';
 	walker.on('file', function(root, stat, next) {
