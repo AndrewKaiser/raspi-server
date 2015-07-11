@@ -26,7 +26,7 @@ var server = app.listen(80, function() {
 	console.log('raspi server listening at http://%s:%s', host, port);
 });
 app.get('/', function (req, res) {
-	res.sendFile(process.cwd() + '/static/index.html');
+	res.sendFile(process.cwd() + '/app/static/index.html');
 });
 app.get('/api/symlinks', function (req, res) {
 	var query = path.join('symlinks/',req.query.user);
@@ -36,12 +36,12 @@ app.get('/api/symlinks', function (req, res) {
 	});
 });
 app.get('/api/links', function (req, res) {
-	var query = path.join('symlinks/me/', req.query.tool+'.json');
+	var query = path.join('app/symlinks/me/', req.query.tool+'.json');
 	fs.readFile(query, 'utf8', function (err, json) {
 		res.json(JSON.parse(json));
-	})
-})
+	});
+});
 
 app.set('json spaces', 2);
-app.use(express.static('static'));
-app.use(express.static('symlinks'));
+app.use(express.static('app/static'));
+app.use(express.static('app/symlinks'));

@@ -1,6 +1,6 @@
 {
   "scripts":{
-    "start":"sudo nodemon -e js,mp3,txt,json -w . -i static -w symlinks server.js"
+    "start":"sudo nodemon -e js,mp3,txt,json -w . -i static -w symlinks app/server.js"
   },
   "name": "raspi-server",
   "description": "raspberry pi server",
