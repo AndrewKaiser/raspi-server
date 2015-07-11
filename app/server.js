@@ -36,7 +36,7 @@ app.get('/api/symlinks', function (req, res) {
 	});
 });
 app.get('/api/links', function (req, res) {
-	var query = path.join('app/symlinks/me/', req.query.tool+'.json');
+	var query = path.join(process.cwd(), 'app/symlinks/me/', req.query.tool+'.json');
 	fs.readFile(query, 'utf8', function (err, json) {
 		res.json(JSON.parse(json));
 	});
