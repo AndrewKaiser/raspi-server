@@ -1,24 +1,40 @@
-var script = document.getElementById('client');
-var request = '/api/symlinks?user=' + script.getAttribute('user');
-$.get(request, function (response) {
-	makeTable(response);
+// var t = $('#evernote');
+// console.log(t.attr('class'))
+var t = document.getElementsByTagName('*');
+var t = document.getElementById('mega');
+console.log(t)
+$('.links').click(function () {
+	var id = this.id;
+	console.log('id');
+
+
+
+	var id = this.id;
+	id = id.substring(this.id.indexOf('-')+1, this.id.length);
+	id = parseInt(id)+1;
+	var getRow = '/api/row?id=' + (id);
+	var getMap = '/api/mappings?id=' + (id);
+	var getCWE = '/api/cwe?id=' + (id);
+	var getDES = '/api/description?id=' + (id);
+	$('#detail').children().clone().appendTo('#popup')
+	var detail = document.getElementById('detail');
+	$.get(getRow, function ( rule ) {
+		makeTable(rule, '#popup .rule')
+	});
+	$.get(getMap, function( mappings ) {
+		makeTable(mappings, '#popup .mappings');
+	});
+	$.get(getCWE, function ( history ) {
+		makeTable(history, "#popup .historyCWE");
+	});
+	$.get(getDES, function ( description ) {
+		description.forEach(function (entry) {
+			// make tag for html or text or markdown
+			$("#popup .description").append(entry.description);
+		});
+	});
+	// look at top of atlas on evernote!
+	// do makeTable() on HistoryCWE as well
+	$('#popup').show();
+	$('#backdrop').show();
 });
-
-
-function makeTable(list) {
-	var table = document.getElementById('fileTable');
-	// var tableBody = document.getElementById
-	var tableFrag = document.createDocumentFragment();
-	for (var r = 0; r < list.length; ++r) {
-		var row = list[r];
-		var tr = document.createElement('tr');
-		var td = document.createElement('td');
-		var a = document.createElement('a');
-		a.href = row;
-		a.appendChild(document.createTextNode(row));
-		td.appendChild(a);
-		tr.appendChild(td);
-		tableFrag.appendChild(tr);
-	}
-	table.appendChild(tableFrag);
-}
