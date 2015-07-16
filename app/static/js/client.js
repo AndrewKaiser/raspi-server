@@ -26,5 +26,20 @@ $(document).ready(function () {
 		$(popup).hide();
 		$(backdrop).hide();
 		popup.innerHTML = "";
-	})
+	});
+
+	adjust();
+	$(window).resize(function() {
+		adjust();
+	});
 });
+
+function adjust() {
+	var mural = $('#proportions');
+	var windowWidth = window.innerWidth;
+	var muralWidth = mural.width();
+	var side = (windowWidth - muralWidth)/2 + 'px';
+
+	console.log(side)
+	mural.css('left', side);
+}

@@ -35,3 +35,19 @@ tr td {
 #detail {
 	display: none;
 }
+#users {
+	text-align: center;
+}
+#proportions {
+	position: absolute;
+	width:80%;
+	left:10%;
+	max-width: 1000px;
+	bottom:0;
+
+}
+#mural {
+	display: inline;
+	max-width: 100%;
+	vertical-align: top;
+}
