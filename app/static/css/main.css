@@ -1,3 +1,8 @@
+body {
+	background-color: #3498DB;
+	/*background-color:#1ABC9C;*/
+	/*background-color: #8BDAFC;*/
+}
 #fileTable {
 	width:100%;
 }
@@ -9,6 +14,11 @@ tr td {
 }
 .links {
 	text-align: center;
+}
+.icon:hover {
+	-moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+-webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+box-shadow: 1px 2px 3px rgba(0,0,0,.5);
 }
 #popup {
 	display:none;
