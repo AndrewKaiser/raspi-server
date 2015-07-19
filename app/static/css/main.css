@@ -14,11 +14,22 @@ tr td {
 }
 .links {
 	text-align: center;
+	z-index: 5;
+}
+.links:hover {
+/*	border: solid 1px #555;
+	border-radius:550px;*/
+}
+.icon {
+	z-index: -4;
 }
 .icon:hover {
 	-moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
--webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+	-webkit-box-shadow: 0 0 5px 2px rgba(0,0,0,.5);
+	-o-box-shadow: 10px 10px rgba(0,0,0,0.6);
+	/*box-shadow: 0 rgba(0,0,0,.5);*/
+	border-radius: 150px;
+	/*width:200px;*/
 }
 #popup {
 	display:none;
@@ -45,19 +56,74 @@ box-shadow: 1px 2px 3px rgba(0,0,0,.5);
 #detail {
 	display: none;
 }
-#users {
-	text-align: center;
-}
+
 #proportions {
 	position: absolute;
 	width:80%;
 	left:10%;
 	max-width: 1000px;
-	bottom:0;
-
+	bottom:0px;
+}
+#holder {
+	position: relative;
+}
+#watch-left {
+	background-color:red;
+	z-index: 100;
+	width:150px;
 }
 #mural {
+	position: relative;
 	display: inline;
 	max-width: 100%;
 	vertical-align: top;
+	z-index: -1;
+}
+#users {
+	text-align: center;
+}
+#right {
+	position: absolute;
+	right:33.1%;
+	bottom:11%;
+	padding-top:4%;
+	padding-left:4%;
+	padding-right:4%;
+	padding-bottom:4%;
+	/*margin: 10px 10px;*/
+	display: inline;
+	/*background-color: red;*/
+	border-radius: 50px;
+	opacity: 0;
+	z-index: 10;
+}
+#left {
+	position: absolute;
+	left:32%;
+	bottom:11%;
+	padding-top:4%;
+	padding-left:4.5%;
+	padding-right:4.5%;
+	padding-bottom:4%;
+	display: inline;
+	opacity: 0;
+	z-index: 11;
+}
+#dan, #anna {
+	color:white;
+	text-decoration: none;
+	/*background-color:black;*/
+	border-radius:25px;
+}
+#mural-left {
+	position:absolute;
+	/*position: 0 0 0 0;*/
+	/*opacity: 0;*/
+	display:none;
+	z-index: 8;
+}
+#mural-right {
+	position:absolute;
+	display:none;
+	z-index: 7;
 }

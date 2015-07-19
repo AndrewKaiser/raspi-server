@@ -2,30 +2,47 @@
 <html>
 <head>
 	<title>Sharing is Key</title>
-	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
-	
+	<script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bacon.js/0.7.70/Bacon.min.js"></script>
 	<script type="text/javascript" src="js/client.js"></script>
-
+	<script type="text/javascript" src="js/loadSvg.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 	<div class="row">
-		<div id="mega" class="links four columns"><img class="icon" src="images/icons/mega.png"></div>
+		<div id="mega" class="links four columns">
+			<object  onload="setHover(mega)" class="icon" type="image/svg+xml" data="images/icons/mega.svg" width="150px"></object>
+		</div>
+		<div id="dropbox" class="links four columns">
+			<object  onload="setHover(dropbox)" class="icon" type="image/svg+xml" data="images/icons/Dropbox.svg" width="150px"></object>
+		</div>
+		<div id="evernote" class="links four columns">
+			<object  onload="setHover(anna)" class="icon" type="image/svg+xml" data="images/icons/evernote2.svg" width="150px"></object>
+		</div>
+		<!-- <div id="mega" class="links four columns"><img class="icon" src="images/icons/mega.png"></div>
 		<div id="dropbox" class="links four columns"><img class="icon" src="images/icons/dropbox.png"></div>
-		<div id="evernote" class="links four columns"><img  class="icon" src="images/icons/evernote.png"></div>
-	</div>
-	<div id="users">
-		<a href="./anna.html">anna</a>
-		<a href="./dan.html">dan</a>
+		<div id="evernote" class="links four columns"><img  class="icon" src="images/icons/evernote.png"></div> -->
 	</div>
 
 
 
 	<div id="proportions">
-	<object id="mural" onload="adjust()" type="image/svg+xml" data="images/main_mural.svg" width="100%">
-	</object>
+		<div id="holder">
+			<div id="users">
+				<div id="left">
+					<a id="dan" href="./dan.html"></a>
+				</div>
+				<div id="right">
+					<a id="anna" href="./anna.html"></a>
+				</div>
+			</div>
+		<object id="mural-left" type="image/svg+xml" data="images/lefteye.svg" width="100%"></object>
+		<object id="mural-right" type="image/svg+xml" data="images/righteye.svg" width="100%"></object>
+		<object id="mural" onload="adjust()" type="image/svg+xml" data="images/main-page-better-original.svg" width="100%"></object>
+		
+		</div>
 	</div>
 
 	<div id="popup"></div>
